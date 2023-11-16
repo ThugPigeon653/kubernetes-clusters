@@ -20,7 +20,7 @@ timeout /t 1 /nobreak >nul
 minikube kubectl -- get deployment multi-pod
 minikube kubectl -- expose deployment multi-pod --type=NodePort --port=5000
 minikube kubectl -- get service multi-pod
-minikube dashboard --url
+minikube dashboard
 echo PRESS ANY KEY TO STOP MINIKUBE
 pause
 minikube stop

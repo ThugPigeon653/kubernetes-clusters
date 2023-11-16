@@ -4,7 +4,7 @@ REM Replace the application in web-app/, and that app will be launched on the cl
 powershell -ExecutionPolicy Bypass -File "%CD%\minikube-setup.ps1"
 cd web-app
 docker login
-docker build --no-cache -t thugpigeon653/lneilsen-demo:latest .
+docker build -t thugpigeon653/lneilsen-demo:latest .
 docker push thugpigeon653/lneilsen-demo:latest
 cd ..
 minikube stop
@@ -13,8 +13,9 @@ minikube delete
 minikube start --memory=4096 --cpus=2
 call minikube -p minikube docker-env
 echo Deleting existing deployment...
-minikube kubectl -- apply -f pod.yaml
+minikube kubectl -- delete deployment single-minikube
 echo Creating deployment...
+minikube kubectl -- create deployment single-minikube --image=thugpigeon653/lneilsen-demo:latest
 minikube kubectl -- expose deployment single-minikube --type=NodePort --port=5000
 minikube kubectl -- get service single-minikube
 minikube dashboard 

@@ -12,6 +12,8 @@ BEFORE GETTING STARTED:
 Each of these quickstart programs handles download, installation, and
 initialization of dependancies and infrastructure. The requirement is
 a running/configured docker service.
+This is designed for windows, and has been tested using Win10 and 
+Docker Desktop.
 
 GETTING STARTED:
 ----------------------------------------------------------------------
