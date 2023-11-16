@@ -14,14 +14,13 @@ minikube start --memory=4096 --cpus=2
 call minikube -p minikube docker-env
 minikube kubectl -- create configmap nginx-config --from-file=./
 echo Creating deployment...
-timeout /t 10 /nobreak >nul
+timeout /t 5 /nobreak >nul
 minikube kubectl -- apply -f ../multi-pod.yaml
-timeout /t 10 /nobreak >nul
+timeout /t 1 /nobreak >nul
 minikube kubectl -- get deployment multi-pod
 minikube kubectl -- expose deployment multi-pod --type=NodePort --port=5000
 minikube kubectl -- get service multi-pod
-minikube dashboard &
-minikube service multi-pod &
+minikube dashboard --url
 echo PRESS ANY KEY TO STOP MINIKUBE
 pause
 minikube stop
