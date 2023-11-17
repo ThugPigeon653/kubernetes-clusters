@@ -1,2 +1,2 @@
-minikube service single-minikube 
+kubectl service single-minikube
 pause

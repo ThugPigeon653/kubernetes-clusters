@@ -8,9 +8,4 @@ docker push thugpigeon653/lneilsen-demo:latest
 cd ..
 aws s3 mb s3://eks-infrastructure
 aws s3 cp cluster.yaml s3://eks-infrastructure/cluster.yaml
-aws s3 cp setup-cluster.bat s3://eks-infrastructure/cluster.yaml
 aws cloudformation create-stack --stack-name eks-infrastructure --template-body file://cluster.yaml --region ap-southeast-2 --capabilities CAPABILITY_NAMED_IAM
-echo PRESS ANY KEY TO STOP AND CLEANUP
-pause
-aws s3api delete-bucket --bucket eks-infrastructure
-aws cloudformation delete-stack --stack-name eks-infrastructure --region ap-southeast-2

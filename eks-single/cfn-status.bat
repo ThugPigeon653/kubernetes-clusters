@@ -1,0 +1,1 @@
+aws cloudformation describe-stacks --stack-name eks-infrastructure --region ap-southeast-2
