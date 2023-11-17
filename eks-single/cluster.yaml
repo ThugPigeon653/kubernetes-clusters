@@ -43,7 +43,9 @@ Resources:
         Statement:
           - Effect: "Allow"
             Principal:
-              Service: "eks.amazonaws.com"
+              Service: 
+                - "eks.amazonaws.com"
+                - "ec2.amazonaws.com"
             Action: "sts:AssumeRole"
 
   EKSCluster:
@@ -54,6 +56,7 @@ Resources:
       ResourcesVpcConfig:
         SubnetIds:
           - !Ref SubnetA
+          - !Ref SubnetB
         SecurityGroupIds:
           - !Ref SecurityGroup
 
